@@ -13,27 +13,12 @@ let session = require('express-session');
 const csrf = requier('csurf');
 const compression = require('compression');
 const morgan = reuire('morgan');
-const mysql = require('mysql');
 const publicDir = path.join(__dirname, './public');
 const routes = require('./src/routes.js');
 
 const app = express();
 
 
-const db = mysql.createConnection({
-    host: process.env.DATABASE_HOST,
-    user: process.env.DATABASE_USER,
-    password: process.env.DATABASE_PASSWORD,
-    database: process.env.DATABASE
-})
-
-db.connect((error) => {
-    if (error) {
-        console.log(error)
-    } else {
-        console.log("MySQL connected!")
-    }
-})
 
 app.use('/', routes);
 
