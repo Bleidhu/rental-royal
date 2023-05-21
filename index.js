@@ -14,7 +14,7 @@ const csrf = requier('csurf');
 const compression = require('compression');
 const morgan = reuire('morgan');
 const publicDir = path.join(__dirname, './public');
-const routes = require('./src/routes.js');
+const routes = require('./src/routes/routes.js');
 
 const app = express();
 
