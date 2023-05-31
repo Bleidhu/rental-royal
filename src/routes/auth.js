@@ -1,10 +1,12 @@
 const express = require('express');
-const { chech, body } = require('express-validator');
-const authController = require('../controllers/auth');
-const User = require('../models/user');
-
+//const { chech, body } = require('express-validator');
+const authController = require('../controllers/auth.controllers.js');
+//const User = require('../models/user');
 const router = express.Router();
 
-router.get('/login', authController.getLogin);
+//router.get('/auth/login', authController.getLogin());
 
-router.get('/signup', authController.getSignup);
+router.post('/api/signup', authController.handleSignup);
+router.get("/api/signup", (req, res) => { res.send("ok") })
+
+module.exports = router
